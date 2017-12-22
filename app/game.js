@@ -18,18 +18,12 @@ let moving = false,
     movingRight = false;
 
 
-function hasCollision(x, y) {
+function hasCollision(tileX, tileY) {
     let collisionMap;
     if (layer === "outdoor")
         collisionMap = outdoorCollision;
     if (layer === "indoor-0")
         collisionMap = indoorCollision;
-    let centerX = x + TILE_SIZE / 2,
-        centerY = y + TILE_SIZE / 2;
-    let tileX = Math.floor(centerX / TILE_SIZE),
-        tileY = Math.floor(centerY / TILE_SIZE);
-
-    // console.log(`${tileX} ${tileY} ${tileXP} ${tileYP} ${tileXM} ${tileYM}`);
     return collisionMap[tileY][tileX] > 0;
 }
 
@@ -51,9 +45,6 @@ function handleMovement() {
 
         if (deltaX === 0 && deltaY === 0) {
             moving = false;
-            player.x = currPos.x * TILE_SIZE;
-            player.y = currPos.y * TILE_SIZE;
-            return;
         }
 
         console.log(`${deltaX} ${deltaY}`);
@@ -68,27 +59,35 @@ function handleMovement() {
 
 function handleInput() {
     if (!movingUp && (keyInputs[87] || keyInputs[38])) {
-        currPos.y -= 1;
-        movingUp = true;
-        moving = true;
+        if (!hasCollision(currPos.x, currPos.y - 1)) {
+            currPos.y -= 1;
+            movingUp = true;
+            moving = true;
+        }
     }
 
     if (!movingLeft && (keyInputs[65] || keyInputs[37])) {
-        currPos.x -= 1;
-        movingLeft = true;
-        moving = true;
+        if (!hasCollision(currPos.x - 1, currPos.y)) {
+            currPos.x -= 1;
+            movingLeft = true;
+            moving = true;
+        }
     }
 
     if (!movingDown && (keyInputs[83] || keyInputs[40])) {
-        currPos.y += 1;
-        movingDown = true;
-        moving = true;
+        if (!hasCollision(currPos.x, currPos.y + 1)) {
+            currPos.y += 1;
+            movingDown = true;
+            moving = true;
+        }
     }
 
     if (!movingRight && (keyInputs[68] || keyInputs[39])) {
-        currPos.x += 1;
-        movingRight = true;
-        moving = true;
+        if (!hasCollision(currPos.x + 1, currPos.y)) {
+            currPos.x += 1;
+            movingRight = true;
+            moving = true;
+        }
     }
 
     console.log(`currPos ${currPos.x} ${currPos.y}`);
