@@ -1,3 +1,5 @@
+import {TILE_SIZE} from "./game-info";
+
 function drawObj(obj, ctx, player, centerX, centerY) {
     const toDraw = document.getElementById(obj.id);
 
@@ -16,8 +18,6 @@ export function render(c, ctx, player, mapinfo, mapdeco) {
     c.height = height;
     c.width = width;
 
-    // ctx.clearRect(0, 0, c.width, c.height);
-
     let [centerX, centerY] = [c.width / 2, c.height / 2];
     // draw map entities
     for (const i in mapinfo) {
@@ -25,11 +25,9 @@ export function render(c, ctx, player, mapinfo, mapdeco) {
     }
 
     // draw player
-    ctx.fillRect(centerX, centerY, 40, 40);
+    ctx.fillRect(centerX, centerY, TILE_SIZE, TILE_SIZE);
 
     for (const i in mapdeco) {
         drawObj(mapdeco[i], ctx, player, centerX, centerY);
     }
-
-    console.log("render");
 }
