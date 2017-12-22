@@ -1,4 +1,4 @@
-import {TILE_SIZE} from "./game-info";
+import {TILE_SIZE, showFps} from "./game-info";
 
 function drawObj(obj, ctx, player, centerX, centerY) {
     const toDraw = document.getElementById(obj.id);
@@ -10,7 +10,7 @@ function drawObj(obj, ctx, player, centerX, centerY) {
     }
 }
 
-export function render(c, ctx, player, mapinfo, mapdeco) {
+export function render(c, ctx, player, mapinfo, mapdeco, fps) {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -29,5 +29,10 @@ export function render(c, ctx, player, mapinfo, mapdeco) {
 
     for (const i in mapdeco) {
         drawObj(mapdeco[i], ctx, player, centerX, centerY);
+    }
+
+    if(showFps) {
+        ctx.font = "20px Arial";
+        ctx.fillText(Math.floor(fps), 0, 20);
     }
 }

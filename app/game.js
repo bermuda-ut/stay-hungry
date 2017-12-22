@@ -7,16 +7,17 @@ import {keyInputs} from "./mss/input-manager";
 let waitTime = 1000 / targetFps;
 
 let divs = {};
-let currPos = {x: player.x / TILE_SIZE, y: player.y / TILE_SIZE};
 let inputs = {};
 let ctx;
 let renderCanvas;
-let moving = false,
-    movingDown = false,
-    movingUp = false,
-    movingLeft = false,
-    movingRight = false;
+let prevTime = 0;
+let prevFps = 0;
+let currPos = {};
 
+let movement = {x: 0, y: 0};
+let currSpeed = 0;
+let accel = 10;
+let maxSpeed = 300;
 
 function hasCollision(tileX, tileY) {
     let collisionMap;
@@ -28,69 +29,53 @@ function hasCollision(tileX, tileY) {
 }
 
 function handleMovement() {
-    if (moving) {
-        let playerPos = {x: player.x / TILE_SIZE, y: player.y / TILE_SIZE};
-        let deltaX = currPos.x - playerPos.x,
-            deltaY = currPos.y - playerPos.y;
-
-        if (deltaX === 0) {
-            movingLeft = false;
-            movingRight = false;
-        }
-
-        if (deltaY === 0) {
-            movingUp = false;
-            movingDown = false;
-        }
-
-        if (deltaX === 0 && deltaY === 0) {
-            moving = false;
-        }
-
-        console.log(`${deltaX} ${deltaY}`);
-
-        if (deltaX > 0) player.x += movementSpeed;
-        else if (deltaX < 0) player.x -= movementSpeed;
-
-        if (deltaY > 0) player.y += movementSpeed;
-        else if (deltaY < 0) player.y -= movementSpeed;
+    if (movement.x || movement.y) {
+        let frameSpeed = 1 / prevFps;
+        player.x += movement.x * frameSpeed * maxSpeed;
+        player.y += movement.y * frameSpeed * maxSpeed;
     }
 }
 
 function handleInput() {
-    if (!movingUp && (keyInputs[87] || keyInputs[38])) {
-        if (!hasCollision(currPos.x, currPos.y - 1)) {
-            currPos.y -= 1;
-            movingUp = true;
-            moving = true;
-        }
+    currPos = {x: player.x / TILE_SIZE, y: player.y / TILE_SIZE};
+    if ((keyInputs[87] || keyInputs[38])) {
+        movement.y = -1;
+    } else if (movement.y < 0) {
+        movement.y = 0;
     }
 
-    if (!movingLeft && (keyInputs[65] || keyInputs[37])) {
-        if (!hasCollision(currPos.x - 1, currPos.y)) {
-            currPos.x -= 1;
-            movingLeft = true;
-            moving = true;
-        }
+    if ((keyInputs[65] || keyInputs[37])) {
+        movement.x = -1;
+    } else if (movement.x < 0) {
+        movement.x = 0;
     }
 
-    if (!movingDown && (keyInputs[83] || keyInputs[40])) {
-        if (!hasCollision(currPos.x, currPos.y + 1)) {
-            currPos.y += 1;
-            movingDown = true;
-            moving = true;
-        }
+    if ((keyInputs[83] || keyInputs[40])) {
+        movement.y = 1;
+    } else if (movement.y > 0) {
+        movement.y = 0;
     }
 
-    if (!movingRight && (keyInputs[68] || keyInputs[39])) {
-        if (!hasCollision(currPos.x + 1, currPos.y)) {
-            currPos.x += 1;
-            movingRight = true;
-            moving = true;
-        }
+    if ((keyInputs[68] || keyInputs[39])) {
+        movement.x = 1;
+    } else if (movement.x > 0) {
+        movement.x = 0;
     }
+    // console.log(`currPos ${currPos.x} ${currPos.y}`);
+}
 
-    console.log(`currPos ${currPos.x} ${currPos.y}`);
+function stepFrame() {
+    const currTime = performance.now();
+    const diff = currTime - prevTime;
+    let fps = 1000 / diff;
+
+    handleInput();
+    handleMovement();
+    render(renderCanvas, ctx, player, mapinfo, mapdeco, fps);
+
+    // console.log(`FPS: ${Math.round(fps)}, Diff:${diff}`);
+    prevTime = currTime;
+    prevFps = fps;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,12 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs = getAllById("input");
     renderCanvas = document.getElementById("render-canvas");
     ctx = renderCanvas.getContext("2d");
-
-    setInterval(() => {
-        handleInput();
-        handleMovement();
-        render(renderCanvas, ctx, player, mapinfo, mapdeco);
-    }, waitTime);
-
+    setInterval(stepFrame, waitTime);
     console.log("Game loaded");
 });
