@@ -1,21 +1,35 @@
 function injectContent(div, type, source) {
-    if(type === "text") {
+    if (type === "text") {
         div.innerHTML = source;
 
-    } else if (type ==="module") {
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function () {
-            if(this.readyState === 4) {
-                if(this.status === 200) {
-                    div.innerHTML = req.responseText;
+    } else if (type === "module") {
+        const reqBody = new XMLHttpRequest();
+        reqBody.onreadystatechange = function () {
+            if (reqBody.readyState === 4) {
+                if (reqBody.status === 200) {
+                    div.innerHTML = reqBody.responseText;
+                    runModule(source);
                 } else {
                     console.warn("Unable to find the module");
                 }
             }
         };
-        req.open("GET", window.location.origin + "/modules/" + source + ".html");
-        req.send();
+        reqBody.open("GET", window.location.origin + "/modules/" + source + ".html");
+        reqBody.send();
     }
+}
+
+function runModule(source) {
+    const reqModuleJs = new XMLHttpRequest();
+    reqModuleJs.onreadystatechange = function () {
+        if (reqModuleJs.readyState === 4) {
+            if (reqModuleJs.status === 200) {
+                eval(reqModuleJs.responseText);
+            }
+        }
+    };
+    reqModuleJs.open("GET", window.location.origin + "/modules/" + source + ".js");
+    reqModuleJs.send();
 }
 
 module.exports = {

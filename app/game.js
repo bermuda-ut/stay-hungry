@@ -14,6 +14,7 @@ let prevTime = 0;
 let prevFps = 0;
 let currPos = {};
 
+//TODO: separate it out to an isolated class
 let movement = {x: 0, y: 0};
 let currSpeed = {x: 0, y: 0};
 let accel = 0.02;
@@ -50,7 +51,7 @@ function handleMovement(fps) {
 
     player.x += Math.round(currSpeed.x);
     player.y += Math.round(currSpeed.y);
-    console.log(`curr speed ${currSpeed.x} ${currSpeed.y}`);
+    // console.log(`curr speed ${currSpeed.x} ${currSpeed.y}`);
 }
 
 function handleInput() {
@@ -87,6 +88,7 @@ function stepFrame() {
     let fps = 1000 / diff;
 
     handleInput();
+    // handle movement only player for now, once isolated out to a class, handle all character movement
     handleMovement(fps);
     render(renderCanvas, ctx, player, mapinfo, mapdeco, fps);
 
@@ -98,10 +100,15 @@ function stepFrame() {
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Loading game");
 
+    // right-click menu will mess up the inputs
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
     divs = getAllById("div");
     inputs = getAllById("input");
     renderCanvas = document.getElementById("render-canvas");
     ctx = renderCanvas.getContext("2d");
+
     setInterval(stepFrame, waitTime);
+
     console.log("Game loaded");
 });
