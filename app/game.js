@@ -15,9 +15,11 @@ let prevFps = 0;
 let currPos = {};
 
 let movement = {x: 0, y: 0};
-let currSpeed = 0;
-let accel = 10;
-let maxSpeed = 300;
+let currSpeed = {x: 0, y: 0};
+let accel = 0.02;
+let maxSpeed = 20;
+const deccel = 0.8;
+const stopThreshold = 0.3;
 
 function hasCollision(tileX, tileY) {
     let collisionMap;
@@ -28,12 +30,27 @@ function hasCollision(tileX, tileY) {
     return collisionMap[tileY][tileX] > 0;
 }
 
-function handleMovement() {
+function handleMovement(fps) {
+    currSpeed.x *= (deccel * fps) / fps;
+    currSpeed.y *= (deccel * fps) / fps;
+    if(Math.abs(currSpeed.x) < stopThreshold) currSpeed.x = 0;
+    if(Math.abs(currSpeed.y) < stopThreshold) currSpeed.y = 0;
+
     if (movement.x || movement.y) {
-        let frameSpeed = 1 / prevFps;
-        player.x += movement.x * frameSpeed * maxSpeed;
-        player.y += movement.y * frameSpeed * maxSpeed;
+        if(movement.x && Math.abs(currSpeed.x) < maxSpeed)
+            currSpeed.x += movement.x * accel * fps;
+        else if (movement.x)
+            currSpeed.x = movement.x * maxSpeed;
+
+        if(movement.y && Math.abs(currSpeed.y) < maxSpeed)
+            currSpeed.y += movement.y * accel * fps;
+        else if (movement.y)
+            currSpeed.y = movement.y * maxSpeed;
     }
+
+    player.x += Math.round(currSpeed.x);
+    player.y += Math.round(currSpeed.y);
+    console.log(`curr speed ${currSpeed.x} ${currSpeed.y}`);
 }
 
 function handleInput() {
@@ -70,7 +87,7 @@ function stepFrame() {
     let fps = 1000 / diff;
 
     handleInput();
-    handleMovement();
+    handleMovement(fps);
     render(renderCanvas, ctx, player, mapinfo, mapdeco, fps);
 
     // console.log(`FPS: ${Math.round(fps)}, Diff:${diff}`);
