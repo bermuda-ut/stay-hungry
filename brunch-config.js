@@ -27,7 +27,7 @@ exports.files = {
 };
 
 exports.paths = {
-    public: "docs"
+    public: "public"
 };
 
 exports.plugins = {
