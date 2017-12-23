@@ -23,7 +23,11 @@ exports.files = {
                 'app/css/game.css',
             ],
         }
-    }
+    },
+};
+
+exports.paths = {
+    public: "doc"
 };
 
 exports.plugins = {
@@ -36,7 +40,7 @@ exports.plugins = {
         }
     },
     uglify: {
-        mangle: false,
+        mangle: true,
         compress: {
             global_defs: {
                 DEBUG: false
