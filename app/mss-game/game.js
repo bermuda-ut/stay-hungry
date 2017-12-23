@@ -1,8 +1,8 @@
-import {getAllById} from "./mss/common";
+import {getAllById} from "mss/common";
 import {render} from "./renderer";
 import {indoorCollision, mapdeco, mapinfo, outdoorCollision} from "./map-info";
 import {player, layer, movementSpeed, targetFps, TILE_SIZE} from "./game-info";
-import {keyInputs} from "./mss/input-manager";
+import {keyInputs} from "../mss/input-manager";
 
 let waitTime = 1000 / targetFps;
 

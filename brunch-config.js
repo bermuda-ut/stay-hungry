@@ -3,17 +3,44 @@ exports.files = {
     javascripts: {
         joinTo: {
             'vendor.js': /^(?!app)/, // Files that are not in `app` dir.
-            'app.js': /^app/
-            // 'app.js': /.*\.js/
+            'app-blog.js': [
+                'app/mss/*.js',
+            ],
+            'app-game.js': [
+                'app/mss/*.js',
+                'app/mss-game/*.js',
+            ],
         }
     },
     stylesheets: {
-        joinTo: 'app.css'
+        joinTo: {
+            'app-blog.css': [
+                'app/css/font.css',
+                'app/css/blog.css',
+            ],
+            'app-game.css': [
+                'app/css/font.css',
+                'app/css/game.css',
+            ],
+        }
     }
 };
 
 exports.plugins = {
     babel: {
         presets: ['latest']
+    },
+    cssnano: {
+        autoprefixer: {
+            add: true
+        }
+    },
+    uglify: {
+        mangle: false,
+        compress: {
+            global_defs: {
+                DEBUG: false
+            }
+        }
     }
 };
