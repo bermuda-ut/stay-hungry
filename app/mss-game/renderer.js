@@ -4,16 +4,28 @@ function drawMap(obj, ctx, player, centerX, centerY, width, height, ratio) {
     const toDraw = document.getElementById(obj.id);
     const visibleWidth = visibleHeight * ratio;
     if (toDraw) {
+        const offsetX = (player.x - visibleWidth / 2) * TILE_SIZE;
+        const offsetY = (player.y - visibleHeight / 2) * TILE_SIZE;
+        const offsetXFloor = Math.floor(offsetX);
+        const offsetYFloor = Math.floor(offsetY);
+        const offsetXDiff = offsetX - offsetXFloor;
+        const offsetYDiff = offsetY - offsetYFloor;
+
+        const drawWidth = visibleWidth * TILE_SIZE;
+        const drawHeight = visibleHeight * TILE_SIZE;
+
+        const deltaX = (offsetXDiff) * width / drawWidth;
+        const deltaY = (offsetYDiff) * width / drawWidth;
         ctx.drawImage(
             toDraw,
-            (player.x - visibleWidth / 2) * TILE_SIZE,
-            (player.y - visibleHeight / 2) * TILE_SIZE,
-            visibleWidth * TILE_SIZE,
-            visibleHeight * TILE_SIZE,
-            0,
-            0,
-            width,
-            height
+            offsetXFloor,
+            offsetYFloor,
+            drawWidth + Math.round(offsetXDiff),
+            drawHeight + Math.round(offsetYDiff),
+            -deltaX,
+            -deltaY,
+            width + deltaX,
+            height + deltaY
         );
     } else {
         console.warn("Unable to find sprite for " + obj.id);

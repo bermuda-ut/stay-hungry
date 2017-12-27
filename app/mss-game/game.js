@@ -1,7 +1,7 @@
 import {getAllById} from "mss/common";
 import {render} from "./renderer";
-import {indoorCollision, mapdeco, mapinfo, outdoorCollision} from "./map-info";
-import {player, layer, movementSpeed, targetFps, TILE_SIZE} from "./game-info";
+import {mapdeco, mapinfo} from "./map-info";
+import {player, layer, targetFps, TILE_SIZE, visibleHeight} from "./game-info";
 import {keyInputs} from "../mss/input-manager";
 
 let waitTime = 1000 / targetFps;
@@ -17,41 +17,35 @@ let currPos = {};
 //TODO: separate it out to an isolated class
 let movement = {x: 0, y: 0};
 let currSpeed = {x: 0, y: 0};
-let accel = 0.02;
-let maxSpeed = 20;
-const deccel = 0.8;
-const stopThreshold = 0.3;
+
+const deccel = 0.2;
+let accel = 0.1;
+const stopThreshold = 0.1;
 
 function hasCollision(tileX, tileY) {
     let collisionMap;
-    if (layer === "outdoor")
-        collisionMap = outdoorCollision;
-    if (layer === "indoor-0")
-        collisionMap = indoorCollision;
-    return collisionMap[tileY][tileX] > 0;
+    // return collisionMap[tileY][tileX] > 0;
 }
 
-function handleMovement(fps) {
-    currSpeed.x *= (deccel * fps) / fps;
-    currSpeed.y *= (deccel * fps) / fps;
+function handleMovement(deltaTime) {
     if(Math.abs(currSpeed.x) < stopThreshold) currSpeed.x = 0;
     if(Math.abs(currSpeed.y) < stopThreshold) currSpeed.y = 0;
 
     if (movement.x || movement.y) {
-        if(movement.x && Math.abs(currSpeed.x) < maxSpeed)
-            currSpeed.x += movement.x * accel * fps;
-        else if (movement.x)
-            currSpeed.x = movement.x * maxSpeed;
+        if(movement.x)
+            currSpeed.x = movement.x * accel;
 
-        if(movement.y && Math.abs(currSpeed.y) < maxSpeed)
-            currSpeed.y += movement.y * accel * fps;
-        else if (movement.y)
-            currSpeed.y = movement.y * maxSpeed;
+        if(movement.y)
+            currSpeed.y += movement.y * accel;
     }
 
-    player.x += Math.round(currSpeed.x);
-    player.y += Math.round(currSpeed.y);
-    // console.log(`curr speed ${currSpeed.x} ${currSpeed.y}`);
+    player.x += currSpeed.x;
+    player.y += currSpeed.y;
+
+    currSpeed.x *= deccel;
+    currSpeed.y *= deccel;
+
+    console.log(`curr speed ${currSpeed.x} ${currSpeed.y}`);
 }
 
 function handleInput() {
@@ -89,7 +83,7 @@ function stepFrame() {
 
     handleInput();
     // handle movement only player for now, once isolated out to a class, handle all character movement
-    handleMovement(fps);
+    handleMovement(diff);
     render(renderCanvas, ctx, player, mapinfo, mapdeco, fps);
 
     // console.log(`FPS: ${Math.round(fps)}, Diff:${diff}`);
