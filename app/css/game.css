@@ -1,23 +1,16 @@
 body {
     margin: 0;
 }
+
 div.dimension {
     width: 100vw;
     height: 100vh;
-}
-
-.dimension > h1 {
-    width: 100%;
-    height: 8%;
-    margin: 0;
     overflow: hidden;
-    background: white;
 }
 
 .dimension > .world {
     width: 100%;
-    height: 92%;
-    overflow: hidden;
+    height: 100%;
 }
 
 .world > div {
@@ -38,10 +31,23 @@ div.dimension {
     left: 0;
     bottom: 0;
 }
+.ui .chat * {
+    display: block;
+    font-family: RedAlert;
+    width: 40vw;
+    font-size: 1.5em;
+    background: transparent;
+    color: white;
+    -webkit-border-radius: 0.1em;
+    -moz-border-radius: 0.1em;
+    border-radius: 0.1em;
+    border: white 1px solid;
+    padding: 8px;
+}
 
 .world > canvas {
     z-index: 0;
-    background: white;
+    background: #1C1117;
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-optimize-contrast;

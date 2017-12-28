@@ -12,19 +12,19 @@
 <body>
 
 <div class="dimension">
-    <h1>You, malloced into my world<span>v2017.1</span></h1>
     <div class="world">
         <div class="ui">
             <div class="conversation hidden">
             </div>
 
             <div class="chat">
-                <textarea name="chat" id="ui-chat" cols="30" rows="10" disabled></textarea>
-                <input type="message" class="text">
+                <textarea id="chat-log" name="chat" id="ui-chat" cols="30" rows="7" disabled></textarea>
+                <input id="chat-input" type="message" class="text" placeholder="Press ENTER to chat">
             </div>
         </div>
 
         <canvas id="render-canvas"></canvas>
+        <img id="tilemap-0" src="../images/tilemap.png" alt="" class="hidden">
         <img id="underground-1" src="../images/underground-1.png" alt="" class="hidden">
         <img id="underground-2" src="../images/underground-2.png" alt="" class="hidden">
     </div>
