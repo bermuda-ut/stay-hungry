@@ -81,8 +81,7 @@ function handleMovement(entity, deltaTime) {
 
     entity.x += entity.currSpeed.x / 1000;
     entity.y += entity.currSpeed.y / 1000;
-
-    console.log(`curr speed ${entity.currSpeed.x} ${entity.currSpeed.y}`);
+    // console.log(`curr speed ${entity.currSpeed.x} ${entity.currSpeed.y}`);
 }
 
 function sendChat(val) {

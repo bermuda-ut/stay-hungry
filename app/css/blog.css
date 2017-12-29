@@ -7,6 +7,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+    line-height: 1.38em;
+}
+
 img {
     max-width: 100%;
     width: auto;
@@ -17,6 +21,10 @@ hr {
     margin: 3em 0;
     border-top: none;
     border-bottom: #f5f5f5 solid 1px;
+}
+
+.justify-center {
+    justify-content: center;
 }
 
 .no-gap > * {
@@ -187,6 +195,55 @@ a:visited {
 
 .show-mobile {
     display: none;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+
+.hover-action span {
+    display: inline;
+}
+
+.hover-action:hover .fadeout {
+    animation-name: fadeout;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 500ms;
+    opacity: 0;
+}
+
+.fadein {
+    opacity: 0;
+}
+
+.hover-action:hover .fadein {
+    animation-name: fadein;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-duration: 500ms;
+    opacity: 1;
 }
 
 @media only screen and (max-width: 800px) {
