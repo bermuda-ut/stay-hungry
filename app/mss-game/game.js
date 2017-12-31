@@ -142,6 +142,7 @@ function stepFrame() {
 
     handleInput();
     // handle movement only player for now, once isolated out to a class, handle all character movement
+    // TODO: Simply run update() function per entity
     for (let k in entityInfo) {
         handleMovement(entityInfo[k], diff);
     }

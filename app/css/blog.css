@@ -8,7 +8,8 @@ body {
 }
 
 p {
-    line-height: 1.38em;
+    line-height: 1.5em;
+    font-size: 1.1em;
 }
 
 img {
@@ -21,6 +22,18 @@ hr {
     margin: 3em 0;
     border-top: none;
     border-bottom: #f5f5f5 solid 1px;
+}
+
+.post h2 {
+    margin-top: 3em;
+}
+
+.post h3 {
+    margin-top: 2em;
+}
+
+.post a {
+    text-decoration: underline;
 }
 
 .justify-center {
@@ -37,8 +50,9 @@ hr {
 }
 
 .container {
-    width: 50%;
-    min-width: 50em;
+    width: 45.5%;
+    min-width: 40em;
+    max-width: 50em;
     margin: auto;
 }
 
@@ -97,9 +111,7 @@ hr {
     text-align: left;
 }
 
-.list-desc p {
-    margin: 0 0 0 auto;
-    align-items: center;
+.list-desc small {
     color: #9e9e9e;
 }
 
@@ -218,6 +230,7 @@ a:visited {
 .absolute {
     position: absolute;
 }
+
 .relative {
     position: relative;
 }
@@ -246,11 +259,47 @@ a:visited {
     opacity: 1;
 }
 
+pre.code {
+    text-align: left;
+    display: block;
+    margin: 1em 2em;
+    background: #f5f5f5;
+    padding: 1em;
+    white-space: pre-wrap;
+    counter-reset: line;
+}
+
+pre.code code {
+    counter-increment: line;
+    white-space: pre-wrap;
+}
+
+pre.code code:before {
+    display: inline-block;
+    content: counter(line);
+    padding-right: 1em;
+    margin-right: 1em;
+    width: 2em;
+    text-align: right;
+    border-right: #9e9e9e solid 1px;
+    color: #9e9e9e;
+}
+
+.refer {
+    margin-top: 5em;
+    text-align: left;
+    font-size: 0.7em;
+}
+
+.refer a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 800px) {
     .container {
-        min-width: calc(100vw - 20px);
-        margin-left: 10px;
-        margin-right: 10px;
+        min-width: calc(100vw - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .header .menu a {
