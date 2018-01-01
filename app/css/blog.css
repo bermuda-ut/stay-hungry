@@ -297,6 +297,11 @@ pre.code code:before {
     font-size: 0.7em;
 }
 
+p code {
+    background: #f5f5f5;
+    padding: 0 2px;
+}
+
 .refer a {
     text-decoration: none;
 }

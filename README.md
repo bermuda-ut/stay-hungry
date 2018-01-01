@@ -1,16 +1,14 @@
-# Brunch + Babel/ES6
+# Hungry World
+[Blog](https://mallocsizeof.me) |
+[Production Code](https://github.com/bermuda-ut/bermuda-ut.github.io)
 
-This is a modern JS skeleton for [Brunch](http://brunch.io).
+Bermuda (Sanmu)'s blog created using [Brunch](http://brunch.io).  
+`brunch new dir -s es6` was the starting point of the project.
 
-## Installation
-
-Clone this repo manually or use `brunch new dir -s es6`
-
-## Getting started
-
-* Install (if you don't have them):
-    * [Node.js](http://nodejs.org): `brew install node` on OS X
-    * [Brunch](http://brunch.io): `npm install -g brunch`
+## Setup
+* Install:
+    * [Node.js](http://nodejs.org)
+    * [Brunch](http://brunch.io) `npm install -g brunch`
     * Brunch plugins and app dependencies: `npm install`
 * Run:
     * `npm start` — watches the project with continuous rebuild. This will also launch HTTP server with [pushState](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history).
@@ -20,9 +18,8 @@ Clone this repo manually or use `brunch new dir -s es6`
     * Place static files you want to be copied from `app/assets/` to `public/`.
     * [Brunch site](http://brunch.io), [Getting started guide](https://github.com/brunch/brunch-guide#readme)
 
-## ES-next
-
-To use proposed JS features not included into ES6, do this:
-
-* `npm install --save-dev babel-preset-stage-0`
-* in `brunch-config.js`, add the preset: `presets: ['latest', 'stage-0']`
+## QnA
+* Can I use this as a starting point for my blog?
+    * Yes, feel free to do so. Just be nice and give me some credits :P
+* Will the game part be an isolated project at one point?
+    * Yes, but that probably is in the far future.
