@@ -7,6 +7,7 @@
     <script src="/app-blog.js"></script>
     <script src="/vendor.js"></script>
     <script src="/posts/0.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
     <script>require('mss/module-injector');</script>
 </head>
 
@@ -16,10 +17,12 @@
 </div>
 
 <div class="container">
-    <h1 class="inverse">
-        This website; concept, design, development, iteration.
+    <h1>
+        <span class="inverse">This </span><span class="inverse">website; </span><span
+            class="inverse">concept, </span><span class="inverse">design, </span><span
+            class="inverse">development, </span><span class="inverse">iteration. </span>
     </h1>
-    <small>31 Dec 2017</small>
+    <small>1 Jan 2018</small>
 
     <div class="justify post">
         <h2>
@@ -28,74 +31,105 @@
                 <span class="fadeout">Baby-steps in Blogging</span>
             </span>
         </h2>
-        <p>My first blogging started back in 2010, when my uncle suggested creating one after he realized how much of a
-            nerd I was (or rather, he saw the value in a naive kid trying out whole bunch of things).
+        <p>My blogging started back in 2010, when my uncle suggested creating one after he realized how much of a
+            nerd I was (or rather, he saw the value in a naive kid trying out a whole bunch of things).
             This resulted in <a target="_blank" href="https://imnotbermuda.com">imnotbermuda.com</a>.
-            My goal back then was simple - write stuff that I do to gain more cookie points in my university
-            applications. And it did work, I got successful interview invites from big universities around the world
-            like University of Cambridge, Imperial College London, University of Melbourne and so on..
-        </p>
+            My goal back then was simple - write stuff to gain more cookie points in my university applications - and it
+            did work! I successfully received interview invites from big universities around the world.</p>
 
         <p>But there was more than that, something more valuable.</p>
 
-        <p>My Dota-related posts took off and gained a fan base (where, I meet really cool people.. You know who you
-            are). I started posting for an audience rather than for myself. This made me grow some love and interest in
-            sharing information or perspectives to people.</p>
+        <img src="/images/0/history.png" alt="">
+        <div class="gallery">
+            <div><img src="/images/0/referrers.png" alt=""></div>
+            <div><img src="/images/0/successful.png" alt=""></div>
+        </div>
 
-        <p>But the old blog has finished serving it's purpose and revamping it would just take too long (plus, I was
-            never happy with Wordpress hosting my things).</p>
+        <p>My Dota-related posts took off and gained a fan base (where, I've met really cool people.. You know who you
+            are). I started posting for an audience rather than for myself. It was motivating to get feedback and
+            suggestions, and made me grow love and interest in sharing information or perspectives to people.
+            This, may not be the best <i>brag-able</i> fact but I have learnt much more maintaining my Dota post and
+            config codes compared to a couple of interviews.</p>
+
+        <p>I genuinely enjoy blogging. I also think ownership of a blog makes you someone who <i>might</i> be featured
+            on Hacker News, separating you out from those with no chance in doing so.
+            But the old blog had finished serving its purpose and revamping it would just take too tedious
+            (plus, I was never happy with Wordpress hosting my things and carrying my old content over).
+            <span id="click-action-8">
+            But wait, I do web development!
+            </span>
+        </p>
 
         <hr>
 
         <h2>Website design principles and concepts</h2>
-        <p>There were a couple of core ideas that were the pillars of this website from the start.</p>
+        <p>There were a couple of core ideas that were the pillars of this website from the beginning.</p>
+
         <h3>Minimal JS and CSS</h3>
-        <p>There are three things that were the core concepts from the start - simple, elegant and <i>fast</i> - just
-            like any other 2017 web development company aims for. This meant, in my head, liberating myself from any
-            other web frameworks and write things dedicated for my website. The challenge I had was writing things that
-            replaced things that I got so used to, such as Bootstrap CSS or some npm packages, but keeping the modern
-            websites' "responsiveness".</p>
+        <p>There were three goals to meet from the start - simple, elegant and <i>fast</i> (just like any other modern
+            web development company aims for).
+            This meant, in my head, liberating myself from all other web frameworks and write things dedicated for my
+            website.
+            There was no need to hack up a wacky, unstable super jet engine on a clumsy bloated body when it could be
+            as light as a feather with.. er.. I can't make feathers go fast.
+            You get my point.
+        </p>
+
+        <p>The challenge I could immediately think of was writing replacement for frameworks that I got so used to,
+            such as Bootstrap CSS or some npm packages, and at the same time keeping the modern websites'
+            "responsiveness".</p>
 
         <h3>Easy to Update</h3>
-        <p>I knew I would never be bothered updating the website if updating the website was tedious. By making the
-            website easy to update, it makes small-incremental updates practically possible. <i>Iterative</i> and
-            <i>Agile</i> development.. <span id="click-action-4">Am I right?</span></p>
+        <p>I knew I would never be bothered to update the website if updating process was anything more than a single
+            line of command.
+            Easy-to-update also makes small incremental updates practical. <i>Iterative</i> and <i>Agile</i>
+            development.. <span id="click-action-4">Am I right?</span></p>
 
-        <h3>Multiplayer Game</h3>
-        <p>My roots of programming sprouted from game development and I wanted something that reflects my passion. Plus,
-            creating some workarounds around the limitation of not having UDP connection in client browsers sounded like
-            a lot of potential learning.</p>
+        <p> I aimed for a reproducible and easy-setup solution, since I was not willing to document a twenty-one-step
+            process on how to setup after investing two decades of my life. The whole idea was to give the developer
+            more time to do more important stuff: writing code that is delivered to the end-user.</p>
+
+        <h3>The 'Wow' Factor - Multiplayer Game</h3>
+        <p>My roots of programming sprouted from game development and I wanted my blog to reflect my passion.
+            Plus, creating workarounds on the absence of UDP connection in client browsers sounded like a lot of
+            potential learning.
+            Spoiler alert, this never went as planned :)</p>
 
         <h3>Readers First</h3>
-        <p>My old blog is an absolute <i>bitch</i> to read anything. I wanted a clean and elegant website where
-            readers could focus on the content, without any cool gimmicks (ie. distractions).</p>
+        <p>My old blog was an absolute <i>bitch</i> to read anything. I wanted a clean and elegant website where
+            readers could focus on the content, without any distractions or ads.</p>
 
         <h3>Free Hosting</h3>
-        <p>I just finished being a student and that means I am still as poor as a student.</p>
+        <p>I had just finished being a student which meant that I was still as poor as a student.
+            It was either free or go home.</p>
 
         <div class="hover-action">
             <div class="fadein">
                 <h3>Hidden Content</h3>
 
-                <p>Because, it would be boring and exactly the same otherwise. I wanted an unique, personalized
-                    experience for every readers out there.
+                <p>Because, it would be boring and exactly the same otherwise. It would be great if I could provide
+                    an unique, personalized experience for every readers out there.
                     I believe the pinnacle of art is bringing the audience to the stage and let one discover the true
-                    meanings and purpose behind the art, rather than going down the scripted path like average books and
+                    meanings and purpose of the art, rather than flowing down the scripted path like normal books and
                     movies.</p>
 
                 <p>We live in a world where the interactive medium - video games - has gone mainstream. It is about time
-                    for other content channels to learn and adopt the advantages of games as an art medium.</p>
+                    for other content channels to learn and adopt the advantages of video games as an entertainment
+                    and art medium.</p>
 
                 <p>Hidden content also means 'reward' for the
                     <del>player</del>
-                    reader. There is nothing more satisfying
-                    than finding well-hidden content after a long intended search. There is nothing more refreshing than
-                    a randomly-stumbled-upon content that <b>might</b> be tailored for you..
+                    reader. There is nothing more satisfying than finding a well-hidden content after a long intended
+                    search. There is nothing more refreshing than finding a randomly-stumbled-upon content that
+                    <b>might</b> be tailored for you. Either way, it adds some personalized experience to you, the
+                    reader.
                 </p>
 
-                <p id="click-action-1">No, it's not a gimmick. It is true art.</p>
-
-                <p id="click-action-5">It may hinder "Readability", but I am sure readers will figure it out.</p>
+                <p>
+                    <span id="click-action-1">No, it's not a gimmick.</span>
+                    <span id="click-action-5">It may hinder some "Readability",
+                        but I am sure you will figure it out.</span>
+                </p>
             </div>
         </div>
 
@@ -115,27 +149,40 @@
 
         <h3 id="click-action-0">Liberating myself from Frameworks and Packages</h3>
 
-        <p>Normally, I won't be bothered researching and go for mainstream frameworks like Rails or Meteor for any
-            websites.
-            This was not going to work - they are heavy to host for free and their framework is too much
-            of an overkill for a simple blog.</p>
+        <p>Normally, I won't be bothered researching and immediately utilize mainstream frameworks like Rails or Meteor
+            for any website.
+            Not that they are <i>great</i>, I just got used to them.
+            This was not going to work - they were too heavy to host for free and was too much of an overkill for
+            <span id="click-action-9">a simple blog</span>.
+        </p>
 
         <p>I was not a huge fan of creating dependencies on other packages either.
-            This was no big project that required a huge black box that potentially leads to a bloated (in both size and
-            speed) solution.
-            The main question was, how long was it going to take? I had no clue since I had never done anything serious
-            from scratch when it came to building websites.</p>
+            This was no big project that required a huge black box that could potentially lead to a bloated (in both
+            size and speed) solution.</p>
 
-        <p>However, I agreed with the idea of transpiling CSS and JS to minify or optimize the code for production.
-            This did not mean that I was a huge fan of traditional Gulp, Browserify or Grunt.
-            They were all in my eyes a pile of over-engineered disaster that will never be touched for my projects -
-            both at home and at work.</p>
+        <p>Anyhow, I liked the idea of transpiling CSS and JS to minify or optimize the code for production.
+            This did not mean that I was a huge fan of Gulp, Browserify or Grunt.
+            They were all, in my eyes,
+            <span class="hover-action">
+                <span class="fadein absolute">
+                    a pile of shit
+                </span>
+                <span class="fadeout">
+                    over-engineered tools
+                </span>
+            </span>
+            that would never be touched again for my projects, both personal and work.</p>
 
         <p>An elegant solution appeared after a short research.
-            <a href="http://brunch.io">Brunch</a> has a super easy setup, simple config and most importantly,
-            <b>incremental builds</b>.
-            Yes, it is still a pile of steaming dependencies to worry about but it is purely a build tool - none of
-            these packages will actually make it to the end-users. It is great, just look at my config file:</p>
+            <a href="http://brunch.io">Brunch</a> was super easy to setup, had a simple config and most importantly,
+            had <b>incremental builds</b>.
+            Yes, it is still a pile of
+            <span id="click-action-10">
+                dependencies
+            </span>
+            to worry about but it is purely a build tool - none of these packages will actually make it to the
+            end-users.
+            Using it was great, just look at my config file:</p>
 
         <pre class="code">
 <code>exports.files = {</code>
@@ -165,10 +212,6 @@
 <code>    },</code>
 <code>};</code>
 <code></code>
-<code>exports.paths = {</code>
-<code>    public: "public"</code>
-<code>};</code>
-<code></code>
 <code>exports.plugins = {</code>
 <code>    babel: {</code>
 <code>        presets: ['latest']</code>
@@ -189,17 +232,16 @@
 <code>};</code>
 </pre>
 
-        <p>It <i>could</i> be simplified and made shorter but I am already happy with above and concluded sinking time
-            further on optimizing the config file is not worth it compared to writing code that is actually delivered
-            to the end-user.
+        <p>It <i>could</i> have been simplified and made shorter but I was already happy with the above and concluded
+            sinking time further on optimizing the config file was not worth compared to writing code that could
+            actually be delivered to the end-user.
             <span id="click-action-2">
-                Besides, this is already heavenly compared to some shit syntax and convoluted semantics in other
-                transpilers.
+                Besides, this was already heavenly compared to convoluted syntax and semantics in other tools.
             </span>
         </p>
 
-        <p>Anyway, this was the best choice I have made in the project. Writing my own things to do simple things was
-            much faster than searching and learning random npm packages.
+        <p>Anyway, this was the best choice I had made in the project. Writing my own things to do simple things was
+            unbelievably faster than searching then learning random npm packages or frameworks.
             <span class="hover-action">
                 <span class="fadein absolute">&nbsp;(some packages were clearly made by <i>web developers</i>)</span>
             </span>
@@ -211,36 +253,62 @@
             I enjoyed the clean, professional look of the blog which was informative and readable.
             I took the core principles of that website and added a bit of my <span id="random-1">flavour</span> ;)</p>
 
-        <p>Along with some handy text effects to mark off special sections or highlight important text,
-            added little bit of interactivity in the website, as demonstrated in the
+        <p>Along with some handy text effects, a little bit of interactivity was added, as demonstrated in the
             <a href="/about.html">about page</a>.
             If I were to pitch this design concept with my business top hat, it would be "<i>More</i> information
-            delivery by showing <i>Less</i>."</p>
+            delivery by showing <i>Less</i>".</p>
+
+        <p>A lot of design principles and philosophy were heavily referenced from
+            <a href="https://www.leejamesrobinson.com/blog/how-stripe-designs-beautiful-websites/" target="_blank">
+                this blog post regarding Stripe's design by Lee Robinson</a>.
+            CSS tricks, font choice and utilization of minimal tools for maximum effect were the key things.
+        </p>
+
+        <img src="/images/0/illustrator.png" alt="">
+
+        <p>Instead of using PNG files everywhere and bloating my website, I decided to use SVGs
+            <span id="click-action-7">wherever possible</span> - taking the advice from Lee Robinson.
+            I got my hands dirty and made the logo with
+            <a href="https://www.freechinesefont.com/simplified-senty-snow-mountain-handwriting/">this beautiful
+                Chinese font</a>. I created the Greek mu symbol by hacking up "y" and "l" in Illustrator and generated
+            an outline vector for the header image.
+        </p>
 
         <h3>Hosting</h3>
         <p>Initial obvious choice was hosting on AWS - static website hosting on S3 storage.</p>
 
-        <p>However, this would cost roughly $1-3 per month, and this was an absolute far away from ideal (it's a cup of
-            coffee per month for God's sake!).
-            Crazy drama aside, I looked around for truly cost-free solutions.</p>
+        <img src="/images/0/s3-pricing.png" alt="">
+        <img src="/images/0/s3-requests.png" alt="">
 
-        <p>I ended up settling down with GitHub pages - it was completely free to host my 'static' website and updating
-            the website was just updating my GitHub repository - already configured! Less tedious tasks!</p>
+        <p>However, this would cost roughly $1-3 per month, and this not even close to ideal. I hunted for a truly
+            cost-free solution. GitHub pages - it was completely free to host my 'static' website. This also meant
+            updating the website was just updating my GitHub repository - already configured! Less tedious tasks!
+            No setup process is the best setup process.</p>
 
-        <p>Cloudflare was setup together to allow HTTPS connection with the end user as a work-around since GitHub pages
-            only support HTTPS for non-custom domains. Note that this is truly is a <i>work-around</i>, as the
-            encryption only occurs between Cloudflare servers and the user, not between Cloudflare and GitHub.
-            Caching from Cloudflare was just a number of clicks and is not even worth mentioning here :P</p>
+        <p>Cloudflare was setup to allow HTTPS connection with the end user as a work-around since GitHub pages only
+            supports HTTPS for non-custom domains.
+            Note that this is truly is a <i>work-around</i>, as the encryption only happens between Cloudflare servers
+            and the user, not between Cloudflare and GitHub.
+            But, who cares. HTTPS was already an overkill for a blog.
+            Caching service from Cloudflare significantly boosted website's load performance. So in the end, it was
+            worth the time reading through random SO posts.</p>
 
         <h3>The Game</h3>
-        <p>Original plan was to use some existing package for rendering and core game components and mainly work on
-            the networking part. However, my nerdy gamer inside wanted to build things from scratch and I ended up
-            writing my own game-framework layer. It is no where near complete as of now but it sure does basic things
-            like rendering and user input.</p>
+        <p>The original plan was to use some existing package for rendering and core game components. Then, mainly work
+            on the networking of the game.
+            However, my nerdy gamer inside wanted to build things from scratch and I ended up writing my own
+            game-framework layer (and I wanted to stay away from hosting problems for now).
+            Currently, it is no where near complete now but it sure does basic things like rendering and user input.</p>
+
+        <div class="gallery">
+            <div><img src="/images/0/old.png" alt=""></div>
+            <div><img src="/images/0/current.png" alt=""></div>
+        </div>
+        <p class="caption">Initial PoC and current version</p>
 
         <p>Here is a quick summary of how it works.</p>
 
-        <p>There is an event listener that updates an object upon key down and up. By this way, we can detect
+        <p>Here is an event listener that updates an object upon key down and up. By this way, we can detect
             multiple key downs and ups every frame:</p>
 
         <pre class="code">
@@ -254,8 +322,9 @@
 <code>});</code>
 </pre>
 
-        <p>This object is utilized every frame. A frame is called to be rendered like this (note that
-            <code>waitTime</code> is idle time between frames and is calculated against target framerate):</p>
+        <p>This object is utilized every frame. To render a frame, <code>stepFrame</code> function is called
+            every interval (note that <code>waitTime</code> is idle time between frames and is calculated against target
+            framerate):</p>
 
         <pre class="code">
 <code>document.addEventListener('DOMContentLoaded', () => {</code>
@@ -267,7 +336,7 @@
 <code>});</code>
 </pre>
 
-        <p>And what happens every frame?</p>
+        <p>So.. what happens every frame?</p>
 
         <pre class="code">
 <code>function stepFrame() {</code>
@@ -286,33 +355,97 @@
 <code>}</code>
 </pre>
 
-        <p><code>handleInput</code> is just a function where it checks the <code>keyInputs</code> object to see if
-            specific buttons are pressed or not. Note that having just event listeners for <code>keyup</code> or
-            <code>keydown</code> is not going to work - the inputs will run independently from framerate, which is not
-            ideal.</p>
+        <p><code>handleInput</code> is just a function which checks <code>keyInputs</code> for buttons pressed.
+            Note that having just event listeners for <code>keyup</code> or <code>keydown</code> is not going to work -
+            the input processing will run independently from framerate, which is not ideal.
+            Keep in mind that by utilizing <code>diff</code> - the time passed since previous frame, will allow
+            us to move our entities independent of the framerate (not not go faster in higher framerate).</p>
 
         <p>As of now, <code>stepFrame</code> runs a specific helper function <code>handleMovement</code> to run all the
-            movement steps for entities in game (player inclusive). However, this is not ideal. I much prefer Unity's
-            way of handling object's frame updates. My current plan is to switch to objects having <code>update</code>
-            method tied into it, which will be run by <code>stepFrame</code>.</p>
+            movement steps for entities in game (player inclusive).
+            However, this is not ideal.
+            I much prefer Unity's way of handling object's frame updates.
+            My current plan is to switch to objects having <code>update</code> method tied into it, which will be run by
+            <code>stepFrame</code>.</p>
 
         <p>So, how does rendering the map work?
             The main challenge was calculating which pixels to render then scale it to the screen size.
             In a nutshell, camera coordinate is the same as player coordinate (easily changeable), measure the offset of
-            the screen width and cut off the part we do not need starting from top left, measure the pixels to render,
-            render on canvas and adjust the width appropriately. The code is too much of a tl;dr, check it out on the
+            the screen width and cut off the part we do not need to render, measure the number of pixels to render,
+            render on canvas and adjust the size appropriately. The code is too much of a tl;dr, check it out on the
             repository (link below).</p>
 
+        <hr>
+
         <h2>Iterations</h2>
-        <p>Duh.</p>
+        <p>These were a few of some changes and features that naturally got developed with multiple iterations.</p>
+
         <h3>'Module' System</h3>
         <p>It is just a fancy word for my simple JS code that dynamically loads content to an empty div.
             There are many utilization around this, such as mimicking React behaviours, dynamic header and footers,
-            and even proper blog templating.
-            I ended up only using it in header and footers since I wanted to reduce JS code as much as possible.</p>
+            and even proper templating.
+            I ended up only using it in header and footers since I wanted to reduce JS code as much as possible and
+            further complications felt unnecessary.</p>
+
         <h3>Readability</h3>
         <p>I played around with different fonts, container size, font size, width, height and other weird CSS things.
+            Feedback from "beta testers" were taken into account.
             Result is this, I hope you feel comfortable reading my blog.</p>
+
+        <h3>The Header Menu</h3>
+        <p>"About", "Blog", "Game" were the original tags, and they were boring.
+            Then I thought about following the same convention as "mallocsizeof.me".
+            The domain name was intended to make the user feel like <i>entering</i> my website by <i>mallocing</i>
+            oneself in the memory
+            <span id="click-action-6">
+                (what a nerd)
+            </span>.
+            So, I made the header read out in the reader's perspective. I know it sounds like something trivial but it
+            was
+            <span class="hover-action">
+                <span class="fadein absolute">
+                    bullshit.
+                </span>
+
+                <span class="fadeout">
+                    important.
+                </span>
+            </span></p>
+
+        <hr>
+
+        <h2>The Outcome</h2>
+        <p>This blog was initially planned a year ago and I finally got some time off to work on it.
+            Although the game part did not end up as I wanted it to be (it is way too far from complete, only went
+            through two iterations), it sure was heck of lot of fun.
+            I will <i>definitely</i> work on it to make it a multiplayer game.</p>
+
+        <p>We also learnt an important theorem, that might possibly change the world:</p>
+        <p>
+            $$
+            \forall x \ \exists y \ (npm_{package}(x) \wedge size_{of}(x) < 100 \text{kB}) \Rightarrow \\
+            (
+            (features_{used}(y) = features_{used}(x)) \wedge \\
+            (time_{learning}(x) \ge time_{writing}(y))
+            )
+            $$
+
+            <span class="hover-action">
+                <span class="fadein">fucking nerd..</span>
+            </span>
+        </p>
+
+        <p>
+            You can check out this website code (production code) at
+            <a target="_blank" href="https://github.com/bermuda-ut/bermuda-ut.github.io">
+                bermuda-ut.github.io repository
+            </a>.
+            If you are interested in the source code and how the project is set up, check it out at
+            <a target="_blank" href="https://github.com/bermuda-ut/stay-hungry">
+                stay-hungry repository
+            </a>.
+        </p>
+        <hr>
 
         <div class="refer">
             <p id="story">

@@ -20,6 +20,17 @@
     src: url("../fonts/RedAlert.ttf");
 }
 
+@font-face {
+    font-family: 'EncodeSansExpanded';
+    font-style: normal;
+    src: url("../fonts/EncodeSansExpanded-Light.ttf");
+}
+
+@font-face {
+    font-family: 'EncodeSansExpanded';
+    font-weight: bold;
+    src: url("../fonts/EncodeSansExpanded-SemiBold.ttf");
+}
 
 /* Scroll bar things :) */
 ::-webkit-scrollbar {

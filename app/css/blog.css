@@ -1,10 +1,16 @@
+/*TODO: Make this less of a cluster fuck*/
+
 body {
-    font-family: Raleway, sans-serif;
+    font-family: "EncodeSansExpanded", sans-serif;
     margin: 0;
     text-align: center;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Raleway", sans-serif;
 }
 
 p {
@@ -52,7 +58,7 @@ hr {
 .container {
     width: 45.5%;
     min-width: 40em;
-    max-width: 50em;
+    max-width: 43.5em;
     margin: auto;
 }
 
@@ -201,10 +207,6 @@ a:visited {
     font-size: 0.7em;
 }
 
-.hide-mobile {
-    display: initial;
-}
-
 .show-mobile {
     display: none;
 }
@@ -259,6 +261,10 @@ a:visited {
     opacity: 1;
 }
 
+.grid {
+    display: grid;
+}
+
 pre.code {
     text-align: left;
     display: block;
@@ -286,13 +292,47 @@ pre.code code:before {
 }
 
 .refer {
-    margin-top: 5em;
+    margin-top: 10em;
     text-align: left;
     font-size: 0.7em;
 }
 
 .refer a {
     text-decoration: none;
+}
+
+div.gallery {
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: column;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+}
+
+div.gallery div {
+    -ms-flex: auto;
+    flex: auto;
+    width: 200px;
+    margin-right: 1vw;
+}
+
+div.gallery div:last-child {
+    margin-right: 0;
+}
+
+div.gallery div img {
+    width: 100%;
+    height: auto;
+}
+
+.caption {
+    text-align: center;
+    color: #7b7b7b;
+    font-size: 1em;
+    margin-top: 0;
 }
 
 @media only screen and (max-width: 800px) {
@@ -314,3 +354,10 @@ pre.code code:before {
         display: none;
     }
 }
+
+@media screen and (max-width: 400px) {
+    div.gallery div {
+        margin: 0;
+    }
+}
+

@@ -31,9 +31,13 @@ div.dimension {
     left: 0;
     bottom: 0;
 }
+
+.ui * {
+    font-family: RedAlert;
+}
+
 .ui .chat * {
     display: block;
-    font-family: RedAlert;
     width: 40vw;
     font-size: 1.5em;
     background: transparent;
@@ -43,6 +47,18 @@ div.dimension {
     border-radius: 0.1em;
     border: white 1px solid;
     padding: 8px;
+}
+
+.ui .return {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+    padding-top: 1em;
+}
+
+.ui .version {
+    right: 0;
+    color: white;
 }
 
 .world > canvas {

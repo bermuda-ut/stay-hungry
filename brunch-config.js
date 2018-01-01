@@ -25,10 +25,6 @@ exports.files = {
     },
 };
 
-exports.paths = {
-    public: "public"
-};
-
 exports.plugins = {
     babel: {
         presets: ['latest']
