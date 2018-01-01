@@ -1,6 +1,5 @@
 # Hungry World
-[Blog](https://mallocsizeof.me) |
-[Production Code](https://github.com/bermuda-ut/bermuda-ut.github.io)
+[Blog](https://mallocsizeof.me)
 
 Bermuda (Sanmu)'s blog created using [Brunch](http://brunch.io).  
 `brunch new dir -s es6` was the starting point of the project.
