@@ -6,6 +6,11 @@ import './App.css';
 
 import SummaryCards from '../SummaryCards/SummaryCards';
 import WorkExperience from '../WorkExperience/WorkExperience';
+import StartupExperience from '../StartupExperience/StartupExperience';
+import HackatonAwards from '../HackatonAwards/HackatonAwards';
+import ProgrammingExperience from '../ProgrammingExperience/ProgrammingExperience';
+import EducationAwards from '../EducationAwards/EducationAwards';
+import OtherAwards from '../OtherAwards/OtherAwards';
 
 class App extends Component {
   render() {
@@ -26,8 +31,23 @@ class App extends Component {
         <h1>Summary</h1>
         <SummaryCards/>
 
-        <h1>WorkExperience</h1>
+        <h1>Work History</h1>
         <WorkExperience/>
+
+        <h1>Startup Experience</h1>
+        <StartupExperience/>
+
+        <h1>Programming and Frameworks</h1>
+        <ProgrammingExperience/>
+
+        <h1>Hackaton Achivements</h1>
+        <HackatonAwards/>
+
+        <h1>Education and Awards</h1>
+        <EducationAwards/>
+
+        <h1>Other Awards</h1>
+        <OtherAwards/>
       </div>
     );
   }
