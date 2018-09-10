@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import logo from './sanmu.svg';
-import './App.css';
+import './Resume.css';
 
 import SummaryCards from '../SummaryCards/SummaryCards';
 import WorkExperience from '../WorkExperience/WorkExperience';
