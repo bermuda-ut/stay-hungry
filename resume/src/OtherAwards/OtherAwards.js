@@ -6,7 +6,7 @@ import Card from '../component/Card';
 class OtherAwards extends Component {
   render() {
     return (
-      <Grid container spacing={12}>
+      <Grid container spacing={8}>
         <p>Other Awards</p>
       </Grid>
     );

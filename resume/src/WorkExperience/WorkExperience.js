@@ -54,7 +54,7 @@ class ExperienceGroup extends Component {
 class WorkExperience extends Component {
   render() {
     return (
-      <Grid container spacing={12}>
+      <Grid container spacing={8}>
         <ExperienceGroup icon={<i>TestIcon</i>} company="Bosch Australia">
           <Experience
             title="IoT Software Engineer"

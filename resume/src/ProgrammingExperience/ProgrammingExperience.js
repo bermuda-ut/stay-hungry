@@ -6,7 +6,7 @@ import Card from '../component/Card';
 class ProgrammingExperience extends Component {
   render() {
     return (
-      <Grid container spacing={12}>
+      <Grid container spacing={8}>
         <p>Programming and Framework Experience</p>
       </Grid>
     );

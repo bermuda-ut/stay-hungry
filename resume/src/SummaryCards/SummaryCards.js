@@ -6,7 +6,7 @@ import Card from '../component/Card';
 class SummaryCards extends Component {
   render() {
     return (
-      <Grid container spacing={12}>
+      <Grid container spacing={16}>
         <Grid item xs={4}>
           <Card
             title="Agile to the Bones"

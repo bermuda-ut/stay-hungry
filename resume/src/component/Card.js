@@ -8,7 +8,7 @@ class Card extends Component {
           {this.props.icon}
         </div>
         <h1>{this.props.title}</h1>
-        <p>{this.props.desc}</p>
+        {this.props.desc}
       </div>
     );
   }
