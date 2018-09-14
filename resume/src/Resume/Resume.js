@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import logo from './sanmu.svg';
 import './Resume.css';
 
+import Logo from '../component/Logo';
 import SummaryCards from '../SummaryCards/SummaryCards';
 import WorkExperience from '../WorkExperience/WorkExperience';
 import StartupExperience from '../StartupExperience/StartupExperience';
@@ -17,9 +17,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <p className="App-logo">
-          fucking logo plz {logo}
-        </p>
+        <div className="App-logo">
+          <Logo colour="white"/>
+        </div>
         </header>
 
         <h1>

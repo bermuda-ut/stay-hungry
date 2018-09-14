@@ -3,8 +3,11 @@
 }
 
 .App-logo {
-  height: 60px;
   margin: 0;
+}
+
+.App-logo svg {
+  height: 60px;
 }
 
 .App-header {
