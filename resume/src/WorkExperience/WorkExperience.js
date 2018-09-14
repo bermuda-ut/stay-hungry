@@ -10,7 +10,18 @@ import boschLogo from './bosch.png';
 import unimelbLogo from './unimelb.svg';
 import clearbridgeLogo from './clearbridge.png';
 
+const SUBJECT_NAME = {
+  "comp30026": "Models of Computation",
+  "comp30024": "Artificial Intelligence",
+  "comp30023": "Computing Systems",
+  "swen30006": "Software Modelling and Design",
+  "comp20005": "Engineering Computation",
+  "comp10001": "Foundations of Computing",
+  "comp90059": "Introduction to Python Programming",
+}
+
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 function dateFormat(d) {
   return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 }
@@ -68,16 +79,6 @@ class SkillGauge extends Component {
       </Grid>
     )
   }
-}
-
-const SUBJECT_NAME = {
-  "comp30026": "Models of Computation",
-  "comp30024": "Artificial Intelligence",
-  "comp30023": "Computing Systems",
-  "swen30006": "Software Modelling and Design",
-  "comp20005": "Engineering Computation",
-  "comp10001": "Foundations of Computing",
-  "comp90059": "Introduction to Python Programming",
 }
 
 class Subject extends Component {
