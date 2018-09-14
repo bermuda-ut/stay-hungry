@@ -1,0 +1,22 @@
+.OtherAwards .dota {
+  width: 100px;
+}
+
+.OtherAwards .battlecup {
+  width: 30vw;
+}
+
+.OtherAwards h1 {
+  font-size: 1.4em;
+  margin-bottom: 0;
+}
+
+.OtherAwards h2 {
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.OtherAwards p {
+  margin-top: 0;
+}
