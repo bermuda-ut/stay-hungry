@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import Card from '../component/Card';
-
 class OtherAwards extends Component {
   render() {
     return (
