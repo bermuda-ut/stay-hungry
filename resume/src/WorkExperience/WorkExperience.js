@@ -153,14 +153,14 @@ As an Agile developer, I work on formulating business strategy and goals, produc
             title="Tutor and Demonstrator"
             desc={<Grid container item xs={12}>
               <h3>Students' Feedback (Anonymous)</h3>
-              <Grid conatiner item xs={12}>
+              <Grid container item xs={12}>
                 <SkillGauge skill="Organization Skills" score={4.9 / 5} />
                 <SkillGauge skill="Clear and Understandable Explanation" score={4.9 / 5} />
                 <SkillGauge skill="Encouraging Particpation" score={4.7 / 5} />
                 <SkillGauge skill="Gauge Understanding" score={4.6 / 5} />
               </Grid>
               <h3>History</h3>
-              <Grid conatiner item xs={12}>
+              <Grid container item xs={12}>
                 <Subject year={2018} semester={2} code="comp30026" />
                 <Subject year={2018} semester={1} code="comp30024" />
                 <Subject year={2018} semester={1} code="comp30023" />

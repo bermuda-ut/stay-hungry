@@ -28,15 +28,9 @@ class StartupExperience extends Component {
 {
   /*
         <Startup
-          name="Momentium Consulting"
-          url="http://momentiumconsulting.com"
           desc="Student Consulting Firm"
           logo={<img src={mmtmLogo}/>}
           experience={
-            <p>Got je-baited into joining and building a fresh startup from scratch, ended up being the most valuable experience ever.
-              With guidance and help from an industry professional, my friend and I worked on a start-up student consulting company.
-              The goals was to provide affordable and quality solutions to the clients and provide real-life work to university students and prepare them for graduation.
-              I handled every technology engagements, identifying customer’s needs, developing a solution and forming a team for implementation.</p>
           }
 
         />

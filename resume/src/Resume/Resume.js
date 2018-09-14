@@ -55,10 +55,14 @@ class App extends Component {
         </div>
 
         <h1>Programming and Frameworks</h1>
-        <ProgrammingExperience />
+        <div style={style.work}>
+          <ProgrammingExperience />
+        </div>
 
         <h1>Hackaton Achivements</h1>
-        <HackatonAwards />
+        <div style={style.work}>
+          <HackatonAwards />
+        </div>
 
         <h1>Education and Awards</h1>
         <EducationAwards />
