@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
 
 import './Resume.css';
 
@@ -14,40 +13,54 @@ import OtherAwards from '../OtherAwards/OtherAwards';
 
 class App extends Component {
   render() {
+    let style = {};
+    style.summary = {
+      padding: "0 10%"
+    };
+
     return (
       <div className="App">
+
         <header className="App-header">
-        <div className="App-logo">
-          <Logo colour="white"/>
-        </div>
+          <div className="App-logo">
+            <Logo colour="white" />
+          </div>
         </header>
 
-        <h1>
-          Max Lee<br/>
-          <small>IoT Software Engineer at Bosch</small><br/>
-          <small>Tutor at the University of Melbourne</small>
-        </h1>
+        <div className="me">
+          <h1>
+            Max Lee
+          </h1>
+          <p>
+            IoT Software Engineer at Bosch
+          </p>
+          <p>
+            Tutor at the University of Melbourne
+          </p>
+        </div>
 
         <h1>Summary</h1>
-        <SummaryCards/>
+        <div style={style.summary}>
+          <SummaryCards />
+        </div>
 
         <h1>Work History</h1>
-        <WorkExperience/>
+        <WorkExperience />
 
         <h1>Startup Experience</h1>
-        <StartupExperience/>
+        <StartupExperience />
 
         <h1>Programming and Frameworks</h1>
-        <ProgrammingExperience/>
+        <ProgrammingExperience />
 
         <h1>Hackaton Achivements</h1>
-        <HackatonAwards/>
+        <HackatonAwards />
 
         <h1>Education and Awards</h1>
-        <EducationAwards/>
+        <EducationAwards />
 
         <h1>Other Awards</h1>
-        <OtherAwards/>
+        <OtherAwards />
       </div>
     );
   }
