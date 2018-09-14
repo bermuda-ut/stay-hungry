@@ -17,6 +17,9 @@ class App extends Component {
     style.summary = {
       padding: "0 10%"
     };
+    style.work = {
+      padding: "0 17%"
+    }
 
     return (
       <div className="App">
@@ -47,7 +50,9 @@ class App extends Component {
         </div>
 
         <h1>Work History</h1>
-        <WorkExperience />
+        <div style={style.work}>
+          <WorkExperience />
+        </div>
 
         <h1>Startup Experience</h1>
         <StartupExperience />

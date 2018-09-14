@@ -10,6 +10,8 @@ import boschLogo from './bosch.png';
 import unimelbLogo from './unimelb.svg';
 import clearbridgeLogo from './clearbridge.png';
 
+import './WorkExperience.css';
+
 const SUBJECT_NAME = {
   "comp30026": "Models of Computation",
   "comp30024": "Artificial Intelligence",
@@ -26,6 +28,10 @@ function dateFormat(d) {
   return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
 }
 
+function scoreFormat(score) {
+  return `${score * 100 | 0}/100`;
+}
+
 class Experience extends Component {
   constructor(props) {
     super(props);
@@ -34,13 +40,22 @@ class Experience extends Component {
 
   render() {
     return (
-      <Grid item xs={12}>
-        <ExpansionPanel expanded={this.state.expanded} onChange={() => this.setState({ expanded: !this.state.expanded })}>
+      <Grid item xs={12} className="experience">
+        <ExpansionPanel
+          style={{
+            boxShadow: "none",
+            border: "none",
+          }}
+          expanded={this.state.expanded} onChange={() => this.setState({ expanded: !this.state.expanded })}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <h1>{this.props.title}</h1>
-            <p>{`${dateFormat(this.props.startDate)} - ${this.props.endDate ? dateFormat(this.props.endDate) : "current"}`}</p>
+            <Grid item xs={7}>
+              <h1>{this.props.title}</h1>
+            </Grid>
+            <Grid item xs={5}>
+              <p className="date">{`${dateFormat(this.props.startDate)} - ${this.props.endDate ? dateFormat(this.props.endDate) : "current"}`}</p>
+            </Grid>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails className="desc">
             {this.props.desc}
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -52,13 +67,15 @@ class Experience extends Component {
 class ExperienceGroup extends Component {
   render() {
     return (
-      <Grid container item xs={12}>
-        <Grid item xs={3}>
+      <Grid container item xs={12} className="group">
+        <Grid item xs={12} md={3} style={{
+          marginTop: "0.5em"
+        }}>
           <a href={this.props.url} target="_blank">
             {this.props.icon}
           </a>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} md={9}>
           {this.props.children}
         </Grid>
       </Grid>
@@ -69,12 +86,12 @@ class ExperienceGroup extends Component {
 class SkillGauge extends Component {
   render() {
     return (
-      <Grid container item xs={12}>
-        <Grid xs={4}>
+      <Grid container item xs={12} className="skillgauge">
+        <Grid item xs={9}>
           {this.props.skill}
         </Grid>
-        <Grid xs={8}>
-          {this.props.score}
+        <Grid item xs={3} style={{textAlign: "right"}}>
+          {scoreFormat(this.props.score)}
         </Grid>
       </Grid>
     )
@@ -84,13 +101,11 @@ class SkillGauge extends Component {
 class Subject extends Component {
   render() {
     return (
-      <Grid container item xs={12}>
-        <Grid xs={4}>
-          <p>
+      <Grid container item xs={12} className="skillgauge">
+        <Grid item xs={4}>
             {this.props.year}, Sem {this.props.semester}
-          </p>
         </Grid>
-        <Grid xs={8}>
+        <Grid item xs={8}>
           <p>
             <a href={`https://handbook.unimelb.edu.au/${this.props.year}/subjects/${this.props.code}`} target="_blank">
               {this.props.subject ? this.props.subject : SUBJECT_NAME[this.props.code]}
@@ -105,7 +120,7 @@ class Subject extends Component {
 class WorkExperience extends Component {
   render() {
     return (
-      <Grid container spacing={8}>
+      <Grid container spacing={16} className="WorkExperience">
         <ExperienceGroup icon={<img src={boschLogo} alt="Bosch Australia" />} url="https://www.bosch.com.au/" company="Bosch Australia">
           <Experience
             title="IoT Software Engineer"
@@ -124,31 +139,37 @@ As an Agile developer, I work on formulating business strategy and goals, produc
             endDate={new Date("Dec 2017")} />
         </ExperienceGroup>
 
-        <ExperienceGroup icon={<img src={unimelbLogo} alt="University of Melbourne" style={{ backgroundColor: "rgb(9, 65, 131)", padding: "2em" }} />} company="University of Melbourne">
+        <hr/>
+
+        <ExperienceGroup icon={<img src={unimelbLogo} alt="University of Melbourne" style={{ backgroundColor: "rgb(9, 65, 131)", padding: "1em" }} />} company="University of Melbourne" url="https://www.unimelb.edu.au/">
           <Experience
             title="Tutor and Demonstrator"
-            desc={<div>
-              <h3>Anonymous Student Feedback</h3>
-              <div>
+            desc={<Grid container item xs={12}>
+              <h3>Students' Feedback (Anonymous)</h3>
+              <Grid conatiner item xs={12}>
                 <SkillGauge skill="Organization Skills" score={4.9 / 5} />
                 <SkillGauge skill="Clear and Understandable Explanation" score={4.9 / 5} />
                 <SkillGauge skill="Encouraging Particpation" score={4.7 / 5} />
                 <SkillGauge skill="Gauge Understanding" score={4.6 / 5} />
-              </div>
+              </Grid>
               <h3>History</h3>
-              <Subject year={2018} semester={2} code="comp30026"/>
-              <Subject year={2018} semester={1} code="comp30024"/>
-              <Subject year={2018} semester={1} code="comp30023"/>
-              <Subject year={2018} semester={1} code="comp20005"/>
-              <Subject year={2018} semester={1} code="swen30006"/>
-              <Subject year={2018} semester="Summer" code="comp90059"/>
-              <Subject year={2016} semester={1} code="comp10001"/>
-            </div>}
+              <Grid conatiner item xs={12}>
+                <Subject year={2018} semester={2} code="comp30026" />
+                <Subject year={2018} semester={1} code="comp30024" />
+                <Subject year={2018} semester={1} code="comp30023" />
+                <Subject year={2018} semester={1} code="comp20005" />
+                <Subject year={2018} semester={1} code="swen30006" />
+                <Subject year={2018} semester="Summer" code="comp90059" />
+                <Subject year={2016} semester={1} code="comp10001" />
+              </Grid>
+            </Grid>}
             startDate={new Date("Feb 2016")}
             endDate={undefined} />
         </ExperienceGroup>
 
-        <ExperienceGroup icon={<img src={clearbridgeLogo} alt="Clear Bridge Group"/>} url="http://www.clearbridge.com.au">
+        <hr/>
+
+        <ExperienceGroup icon={<img src={clearbridgeLogo} alt="Clear Bridge Group" />} url="http://www.clearbridge.com.au">
           <Experience
             title="Fullstack Developer"
             desc={<p>Business Process Management System development using Meteor.js and Typescript. The application also acted as a friendly web-interface for jBPM. A combination of Blaze and React were used on the view side.</p>}
