@@ -23,7 +23,9 @@ class App extends Component {
 
         <header className="App-header">
           <div className="App-logo">
-            <Logo colour="white" />
+            <a href="/">
+              <Logo colour="white" />
+            </a>
           </div>
         </header>
 
