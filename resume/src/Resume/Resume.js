@@ -5,7 +5,6 @@ import './Resume.css';
 import Logo from '../component/Logo';
 import SummaryCards from '../SummaryCards/SummaryCards';
 import WorkExperience from '../WorkExperience/WorkExperience';
-import StartupExperience from '../StartupExperience/StartupExperience';
 import HackatonAwards from '../HackatonAwards/HackatonAwards';
 import ProgrammingExperience from '../ProgrammingExperience/ProgrammingExperience';
 import EducationAwards from '../EducationAwards/EducationAwards';
@@ -65,7 +64,9 @@ class App extends Component {
         </div>
 
         <h1>Education and Awards</h1>
-        <EducationAwards />
+        <div style={style.work}>
+          <EducationAwards />
+        </div>
 
         <h1>Other Awards</h1>
         <OtherAwards />
