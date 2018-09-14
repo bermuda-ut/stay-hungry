@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import mmtmLogo from "./mmtm.png";
-import mssLogo from "./mss.png";
 
 class Startup extends Component {
   render() {
@@ -25,20 +23,10 @@ class StartupExperience extends Component {
   render() {
     return (
       <Grid container spacing={8}>
-        <Startup
-          name="mirrorstairstudio"
-          url="https://mirrorstairstudio.com"
-          desc="Indie Game Development Studio"
-          logo={<img src={mssLogo} style={{backgroundColor: "black"}}/>}
-          experience={
-            <p>My dream of having my own indie-game studio kind-of formulated to reality during university.
-              It was a great excuse for me to attened hackathons with the team and grow various skills, both technical and non-technical.
-              Casual game development contiued throughout university, making games for fun.
-              However after graduation, I wanted to take the studio to next-level and looked out for contract works.
-              In 2018, the studio successfully worked and completed a client game project.
-            </p>
-          }
-        />
+
+
+{
+  /*
         <Startup
           name="Momentium Consulting"
           url="http://momentiumconsulting.com"
@@ -50,7 +38,10 @@ class StartupExperience extends Component {
               The goals was to provide affordable and quality solutions to the clients and provide real-life work to university students and prepare them for graduation.
               I handled every technology engagements, identifying customer’s needs, developing a solution and forming a team for implementation.</p>
           }
+
         />
+        */
+}
       </Grid>
     );
   }

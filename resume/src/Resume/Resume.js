@@ -54,9 +54,6 @@ class App extends Component {
           <WorkExperience />
         </div>
 
-        <h1>Startup Experience</h1>
-        <StartupExperience />
-
         <h1>Programming and Frameworks</h1>
         <ProgrammingExperience />
 

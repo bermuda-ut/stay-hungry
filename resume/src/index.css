@@ -18,7 +18,7 @@ body {
   display: none;
 }
 
-a:hover:not(.disabled), .a-style:hover {
+p a:hover:not(.disabled), .a-style:hover {
   background: black !important;
   color: white !important;
   animation-name: aAnim;
@@ -27,10 +27,10 @@ a:hover:not(.disabled), .a-style:hover {
   animation-duration: 200ms;
 }
 
-a:active:not(.disabled) {
+p a:active:not(.disabled) {
   background: #424242 !important;
 }
 
-a {
+p a {
   color: inherit;
 }

@@ -6,6 +6,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Grid from '@material-ui/core/Grid';
 
+import mmtmLogo from "./mmtm.png";
+import mssLogo from "./mss.png";
 import boschLogo from './bosch.png';
 import unimelbLogo from './unimelb.svg';
 import clearbridgeLogo from './clearbridge.png';
@@ -35,7 +37,9 @@ function scoreFormat(score) {
 class Experience extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      expanded: this.props.expanded != undefined ? this.props.expanded : false
+    };
   }
 
   render() {
@@ -52,7 +56,10 @@ class Experience extends Component {
               <h1>{this.props.title}</h1>
             </Grid>
             <Grid item xs={5}>
-              <p className="date">{`${dateFormat(this.props.startDate)} - ${this.props.endDate ? dateFormat(this.props.endDate) : "current"}`}</p>
+              <p className="date">{
+                this.props.subtitle ? this.props.subtitle :
+                  `${dateFormat(this.props.startDate)} - ${this.props.endDate ? dateFormat(this.props.endDate) : "current"}`
+              }</p>
             </Grid>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="desc">
@@ -90,7 +97,7 @@ class SkillGauge extends Component {
         <Grid item xs={9}>
           {this.props.skill}
         </Grid>
-        <Grid item xs={3} style={{textAlign: "right"}}>
+        <Grid item xs={3} style={{ textAlign: "right" }}>
           {scoreFormat(this.props.score)}
         </Grid>
       </Grid>
@@ -103,7 +110,7 @@ class Subject extends Component {
     return (
       <Grid container item xs={12} className="skillgauge">
         <Grid item xs={4}>
-            {this.props.year}, Sem {this.props.semester}
+          {this.props.year}, Sem {this.props.semester}
         </Grid>
         <Grid item xs={8}>
           <p>
@@ -139,7 +146,7 @@ As an Agile developer, I work on formulating business strategy and goals, produc
             endDate={new Date("Dec 2017")} />
         </ExperienceGroup>
 
-        <hr/>
+        <hr />
 
         <ExperienceGroup icon={<img src={unimelbLogo} alt="University of Melbourne" style={{ backgroundColor: "rgb(9, 65, 131)", padding: "1em" }} />} company="University of Melbourne" url="https://www.unimelb.edu.au/">
           <Experience
@@ -167,7 +174,7 @@ As an Agile developer, I work on formulating business strategy and goals, produc
             endDate={undefined} />
         </ExperienceGroup>
 
-        <hr/>
+        <hr />
 
         <ExperienceGroup icon={<img src={clearbridgeLogo} alt="Clear Bridge Group" />} url="http://www.clearbridge.com.au">
           <Experience
@@ -183,6 +190,45 @@ As an Agile developer, I work on formulating business strategy and goals, produc
             endDate={new Date("July 2015")} />
         </ExperienceGroup>
 
+        <hr />
+
+        <h1 style={{ textAlign: "center", width: "100%" }}>Startup Experience</h1>
+
+        <ExperienceGroup
+          icon={<img src={mssLogo} style={{ backgroundColor: "black" }} />}
+          alt="mirrorstairstudio"
+          url="https://mirrorstairstudio.com">
+          <Experience
+            title="mirrorstairstudio"
+            subtitle="Indie Game Development Studio"
+            desc={
+              <p>My dream of having my own indie-game studio kind-of formulated to reality during university.
+                It was a great excuse for me to attened hackathons with the team and grow various skills, both technical and non-technical.
+                Casual game development contiued throughout university, making games for fun.
+                However after graduation, I wanted to take the studio to next-level and looked out for contract works.
+                In 2018, the studio successfully worked and completed a client game project.
+            </p>
+            }
+          />
+        </ExperienceGroup>
+
+        <hr />
+
+        <ExperienceGroup
+          icon={<img src={mmtmLogo} />}
+          alt="Momentium Consulting"
+          url="http://momentiumconsulting.com">
+          <Experience
+            title="Momentium Consulting"
+            subtitle="Student Consulting Firm"
+            desc={
+              <p>Got je-baited into joining and building a fresh startup from scratch, ended up being the most valuable experience ever.
+                With guidance and help from an industry professional, my friend and I worked on a start-up student consulting company.
+                The goals was to provide affordable and quality solutions to the clients and provide real-life work to university students and prepare them for graduation.
+              I handled every technology engagements, identifying customer’s needs, developing a solution and forming a team for implementation.</p>
+            }
+          />
+        </ExperienceGroup>
       </Grid>
     );
   }
